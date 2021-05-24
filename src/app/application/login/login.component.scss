@@ -1,0 +1,23 @@
+.ng-touched:not(form) {
+  border: 3px solid lightblue;
+  }
+.ng-dirty.ng-valid:not(form) {
+  border: 3px solid green;
+  }
+.ng-dirty.ng-invalid:not(form) {
+  border: 3px solid red;
+  }
+#loginForm Button {
+    color: blue;
+    width: 50%;
+    margin-left: 3%;
+    border-width: 3px;
+    border-color: yellow
+}
+#loginForm Button:disabled {
+  border-style: inset;
+}
+#loginForm Button {
+  border-style: outset;
+}
+

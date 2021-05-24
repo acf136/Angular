@@ -1,0 +1,24 @@
+<p>Login</p>
+<div class="form-group">
+<form class="form"  [formGroup]="loginForm" id="loginForm" name="loginForm"  (ngSubmit)="doLogin()" novalidate autocomplete="off" required>
+  <div>
+      <input id="username" name="username" type="text" formControlName="username" placeholder="Enter username" required autocomplete="false" maxlength="12">
+      <span class="help-block" *ngIf="username.touched && username.invalid"><br>The username is not valid</span>
+  </div>
+  <br>
+  <div>
+    <input id="password" name="password" type="password" formControlName="password" placeholder="Enter password" required autocomplete="false"  required>
+    <div class="help-block" *ngIf="password.touched && password.value">
+      <span class="help-block" *ngIf="password.errors?.minlength" >The password is too short<br></span>
+      <span class="help-block" *ngIf="!password.errors?.minlength && password.errors?.maxlength">The password is too long<br></span>
+      <span class="help-block" *ngIf="!ValidFieldValue('password')">The password is not valid</span>
+    </div>
+
+  </div>
+  <br>
+  <button type="submit" [disabled]="!loginForm.valid"> Login </button>
+  <br>
+  <br>
+  <div>You are trying to login as  <b>{{username.value}}</b></div>
+</form>
+</div>
