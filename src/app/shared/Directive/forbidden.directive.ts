@@ -11,11 +11,11 @@ export function forbiddenEmailValidator(nameRe: RegExp): ValidatorFn {
 }
 
 @Directive({
-  selector: '[selectorForbiddenEmail]',
+  selector: '[selectorPatternEmail]',
   providers: [{provide: NG_VALIDATORS, useExisting: ForbiddenValidatorDirective, multi: true}]
 })
 export class ForbiddenValidatorDirective implements Validator {
-  @Input('selectorForbiddenEmail') forbiddenEmail = '';
+  @Input('selectorPatternEmail') forbiddenEmail = '';
 
   validate(control: AbstractControl): ValidationErrors | null {
     // console.log('validate- this.forbiddenEmail =:',  this.forbiddenEmail ) // TODO  remove console.log

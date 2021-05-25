@@ -4,26 +4,44 @@
   <li *ngFor="let user of users; index as i" (click)="goToDetails(i)">
     <div>1stName:<button class="blockbutton">{{user.name}}</button></div>
     <div *ngIf="selectedUser?.id === user.id">
-      <form #detailUserForm="ngForm" class="form-group"  id="detailUserForm" name="detailUserForm"  (ngSubmit)="update(f_user)"  #userForm="ngForm" >
+      <!-- Begin of   detailUserForm-->
+      <form #detailUserForm="ngForm"
+         class="form-group"  id="detailUserForm"  name="detailUserForm"
+         (ngSubmit)="update(f_user)"  #userForm="ngForm" >
         <label for="f_user.name">Name : </label>
-        <input class="form-control" type="text"  id="f_user.name"        name="f_user.name"       [(ngModel)]="f_user.name"       #f_userName="ngModel"  placeholder="name"      required>
-        <div [hidden]="f_userName.valid || f_userName.pristine"  class="alert alert-danger"> Name is required</div>
-        <label for="f_user.secondName">SecondName :</label>
-        <input class="form-control" type="text"  id="f_user.secondName"  name="f_user.secondName" [(ngModel)]="f_user.secondName" placeholder="secondName">
-        <label for="f_user.email">Email :</label>
-        <input class="form-control" type="text"  id="f_user.email"       name="f_user.email"      [(ngModel)]="f_user.email"      placeholder="email"
-           #email="ngModel"  selectorForbiddenEmail="[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\.[a-z]{2,3}"   required>
-        <div [hidden]="email.pristine || !email.errors?.forbiddenEmail"  class="alert alert-danger">
-email should be like "address@gmail.com"<br>
-Chars accepted:  letters numbers  % -  _
+        <input class="form-control" type="text"  id="f_user.name" name="f_user.name"
+          [(ngModel)]="f_user.name"  #f_userName="ngModel"
+          placeholder="name" required>
+        <div [hidden]="f_userName.valid || f_userName.pristine"
+          class="alert alert-danger">
+           Name is required
         </div>
-        <!-- <div [hidden]=""  class="alert alert-danger"> email is required</div> -->
+        <label for="f_user.secondName">SecondName :</label>
+        <input class="form-control" type="text"  id="f_user.secondName"
+          name="f_user.secondName" [(ngModel)]="f_user.secondName"
+          placeholder="secondName">
+        <label for="f_user.email">Email :</label>
+        <input class="form-control" type="text"  id="f_user.email"  name="f_user.email"
+          [(ngModel)]="f_user.email"  #email="ngModel"
+          selectorPatternEmail="[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\.[a-z]{2,3}"
+          placeholder="email" required>
+        <div [hidden]="email.pristine || !email.errors?.forbiddenEmail"
+          class="alert alert-danger">
+          email should be like "address@gmail.com"<br>
+          Chars accepted:  letters numbers  % -  _
+        </div>
         <label for="f_user.impagado">Impagado :</label>
-        <input class="form-control" type="checkbox" id="f_user.impagado" name="f_user.impagado"   [(ngModel)]="f_user.impagado"   >
-        <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid"> Update User </button>
-        <button class="blockbutton" (click)="remove( users[i] )">Delete User</button>
+        <input class="form-control" type="checkbox" id="f_user.impagado"
+           name="f_user.impagado"  [(ngModel)]="f_user.impagado" >
+        <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">
+          Update User
+        </button>
+        <button class="blockbutton" (click)="remove( users[i] )">
+          Delete User
+        </button>
         <h3><div *ngIf="f_user.impagado"><span id="impagado">Impagado!!</span></div></h3>
       </form>
+      <!-- End of  detailUserForm-->
     </div>
   </li>
 </ul>

@@ -42,3 +42,4 @@ Pla1-ac3.1.1
 
 Pla1-ac3.1.2
 - AuthGuard class implementing CanActivate() and add to route  { path: "home", canActivate : [AuthGuard] , component: UserComponent }
+- AutorizationService checking user/pwd and storing in browser localStorage 
