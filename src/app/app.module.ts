@@ -18,7 +18,7 @@ import { UsersModule } from './users/users.module';
 // Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './application/login/login.component';
-
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { LoginComponent } from './application/login/login.component';
     ReactiveFormsModule,
     UsersModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

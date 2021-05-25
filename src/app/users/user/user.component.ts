@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from '../../shared/interfaces';
 import { UsersService } from '../../shared/service/user.service';
-import { ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-user',

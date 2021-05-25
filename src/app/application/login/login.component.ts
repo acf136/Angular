@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AutorizationService } from '../../shared/service/autorization.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
 */
   public loginForm : FormGroup;
 
-  constructor(private router : Router, private builder: FormBuilder ) {
+  constructor(private service : AutorizationService, private router : Router, private builder: FormBuilder ) {
   }
 
   private buildForm() {
@@ -30,6 +31,10 @@ export class LoginComponent implements OnInit {
                       Validators.pattern(this.isValidPassword) ]
                 ]
     });
+  }
+
+  private checkLogin(uname: string, pwd : string) : boolean {
+    return  this.service.checkUserPassword(uname, pwd);
   }
 
   ngOnInit(): void {
@@ -46,8 +51,11 @@ export class LoginComponent implements OnInit {
   doLogin() {
     console.log('User:' + this.username.value );
     console.log('Password:' + this.password.value);
-    if (this.loginForm.valid){
-      this.router.navigate(['/home']);
+    // if (this.loginForm.valid){
+    if ( this.checkLogin( this.username.value , this.password.value ) ) {
+      this.goToHome();
+    } else {
+       alert('Login incorrect') ;
     }
   }
 

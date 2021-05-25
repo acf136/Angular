@@ -39,3 +39,6 @@ Pla1-ac3.1
 Pla1-ac3.1.1
 - Moving  forbiden.directive to shared/Directive folder
 - Deleting unused key-logger.component
+
+Pla1-ac3.1.2
+- AuthGuard class implementing CanActivate() and add to route  { path: "home", canActivate : [AuthGuard] , component: UserComponent }
