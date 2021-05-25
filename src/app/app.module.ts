@@ -18,14 +18,12 @@ import { UsersModule } from './users/users.module';
 // Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './application/login/login.component';
-// import { KeyLoggerComponent } from './key-logger/key-logger.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    // KeyLoggerComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,7 @@ import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator, ValidatorF
 export function forbiddenEmailValidator(nameRe: RegExp): ValidatorFn {
   return (control: AbstractControl): null | ValidationErrors  => {
     const forbidden = nameRe.test(control.value);
-    console.log('ValidatorFn - control.value =:',  control.value )
+    // console.log('ValidatorFn - control.value =:',  control.value ) // TODO  remove console.log
     return forbidden ? null:  {forbiddenEmail: {value: control.value}} ;
   };
 }
@@ -18,9 +18,10 @@ export class ForbiddenValidatorDirective implements Validator {
   @Input('selectorForbiddenEmail') forbiddenEmail = '';
 
   validate(control: AbstractControl): ValidationErrors | null {
-    console.log('validate- this.forbiddenEmail =:',  this.forbiddenEmail )
+    // console.log('validate- this.forbiddenEmail =:',  this.forbiddenEmail ) // TODO  remove console.log
     return this.forbiddenEmail ? forbiddenEmailValidator(new RegExp(this.forbiddenEmail, 'i'))(control)
                               : null;
   }
 }
+
 

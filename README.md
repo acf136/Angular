@@ -35,3 +35,7 @@ Pla1-ac3.1
 - Checkbox para pagado/impagado
 - Using Observables with HttpClientInMemoryWebApiModule 
 - Implementing CRUD with http post, get , push, delete  and       catchError( (error: HttpErrorResponse) ...
+
+Pla1-ac3.1.1
+- Moving  forbiden.directive to shared/Directive folder
+- Deleting unused key-logger.component
